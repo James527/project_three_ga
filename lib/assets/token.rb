@@ -1,3 +1,5 @@
+### GITHUB API TEST FILE: UNLESS TESTING PLEASE IGNORE ###
+
 require 'httparty'
 require 'json'
 

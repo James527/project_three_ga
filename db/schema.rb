@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(version: 20150623162518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # Creates the Assignments Table:
   create_table "assignments", force: :cascade do |t|
     t.string   "date_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  # Creates the Homeworks Table:
   create_table "homeworks", force: :cascade do |t|
     t.boolean  "complete"
     t.integer  "student_id"
@@ -30,9 +32,11 @@ ActiveRecord::Schema.define(version: 20150623162518) do
     t.datetime "updated_at",    null: false
   end
 
+  # Creates the Assignment and Student Foriegn Key Columns within the Homeworks Table:
   add_index "homeworks", ["assignment_id"], name: "index_homeworks_on_assignment_id", using: :btree
   add_index "homeworks", ["student_id"], name: "index_homeworks_on_student_id", using: :btree
 
+  # Creates the Students Table:
   create_table "students", force: :cascade do |t|
     t.string   "github_id"
     t.string   "real_name"
@@ -40,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150623162518) do
     t.datetime "updated_at", null: false
   end
 
+  # Creates the Assignment and Student Foriegn Keys for the Homeworks Table:
   add_foreign_key "homeworks", "assignments"
   add_foreign_key "homeworks", "students"
 end
