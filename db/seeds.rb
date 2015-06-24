@@ -142,6 +142,7 @@ assignment_list = [
 	# ["w12d01"], ["w12d02"], ["w12d03"], ["w12d04"], ["w12d05"]
 ]
 
+#Create loop for the Assignment List:
 assignment_list.each do |date_name|
 	Assignment.create(date_name: date_name)
 end
@@ -158,6 +159,7 @@ homework_list = [
 	[true, 7, 1], [true, 7, 2], [true, 7, 3], [false, 7, 4], [false, 7, 5]
 ]
 
+#Create loop for the Homework List:
 homework_list.each do |complete, student_id, assignment_id|
 	Homework.create(complete: complete, student_id: student_id, assignment_id: assignment_id)
 end
